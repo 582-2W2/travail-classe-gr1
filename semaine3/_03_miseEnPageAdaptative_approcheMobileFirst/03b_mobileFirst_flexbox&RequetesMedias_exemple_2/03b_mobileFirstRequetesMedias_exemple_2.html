@@ -21,7 +21,10 @@
 /* Styles de base
 =============================================== */
 html {
-    width: 100vw;
+    /* Peut causer des problèmes lorsque une barre de défilement verticale est 
+    présente : donc éviter de spécifier une largeur 100vw, par défaut la valeur 
+    auto fait l'affaire dans la majorité des cas d'utilisation */
+    /* width: 100vw; */
     height: 100vh;
     /*Calcul automatique de la taille du texte à la racine du document*/
     font-size: clamp(14px, 0.75rem + 1vw, 22px);
@@ -96,7 +99,9 @@ body {
 main {
     /* Conteneur flex en colonne*/
     display: flex;
-    flex-direction: column;          
+    flex-direction: column;
+    /* Il faut aussi que ce conteneur s'étire comme item flex  */
+    flex: 1 1 auto;
 }
 
 .menu {
@@ -111,9 +116,9 @@ main {
 
 article,
 aside {
-    min-height: 40vh;
+    /* min-height: 40vh; */
     /*Ces balises peuvent s'étirer*/
-
+    flex: 1 1 0;
 }
 
 footer {
@@ -136,7 +141,14 @@ footer {
 */
 
 @media screen and (min-width: 768px) {
+    .menu {
+        flex-direction: row;
+    }
 
+    .menu > a {
+        border: 1px solid red;
+        flex: 1 0 0;
+    }
 }
 
 
@@ -151,16 +163,18 @@ footer {
 */
 @media screen and (min-width: 992px) {
     main {
-
+        flex-flow: row wrap;
+        flex: 1 1 auto;
     }
 
-
     article {
-
+        flex: 3 0 0;
     }
 
     footer {
-
+        display: flex;
+        justify-content: center;
+        column-gap: 3vw;
     }
 
 
@@ -187,10 +201,16 @@ footer {
         <article>
             <h2>ARTICLE</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed ex turpis. Cras luctus nibh lectus, in ullamcorper ex tempor eleifend. Nulla bibendum, eros a consequat vestibulum, orci massa fermentum quam, sed commodo nunc ex vitae nisl. Aliquam ullamcorper interdum est nec tincidunt.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos ut architecto nihil accusamus sapiente nesciunt culpa quos quam fugit laudantium! Optio quos magni rem dicta repudiandae saepe distinctio aperiam ab veritatis nisi exercitationem, quia nostrum. Qui quam quibusdam molestiae consequatur odit dolores consectetur impedit quas, eos rem neque, voluptatem officiis vel sed fugit eveniet facilis. Minima dolorem obcaecati modi! Sequi deserunt necessitatibus, omnis recusandae dignissimos enim officia sint iusto unde ea voluptatibus similique illum magnam id nihil eum, quis error quidem possimus laudantium temporibus provident. Consequuntur saepe molestiae eum, illo facere cum, rem nobis magni veniam tempore sapiente cupiditate deserunt, explicabo exercitationem! Maiores molestias asperiores sed nulla aliquam possimus modi ut omnis magnam veritatis quas, ad ab, voluptatum odio ratione accusantium adipisci doloribus enim! Inventore ducimus facilis voluptate eveniet libero?</p>
         </article>
         <aside>
             <h2>ASIDE</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed ex turpis.</p>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque odit aliquid autem est nobis nostrum corporis atque provident labore blanditiis, ut quos eaque eligendi consectetur?</p>
+                <p>Id sed similique, minima maxime odio at est ad quia voluptates porro aspernatur totam eum explicabo earum ea nam. Explicabo nisi pariatur nesciunt velit hic.</p>
+                <p>Magnam alias consequuntur distinctio perspiciatis deleniti. Magnam, reiciendis quia aperiam odio obcaecati aliquam ullam unde doloremque minima illo commodi blanditiis libero corrupti earum saepe et!</p>
+            </div>
         </aside>
     </main>
 
