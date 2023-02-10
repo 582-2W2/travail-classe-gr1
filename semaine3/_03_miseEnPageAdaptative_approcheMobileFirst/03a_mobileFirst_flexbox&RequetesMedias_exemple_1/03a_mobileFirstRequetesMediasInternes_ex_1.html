@@ -77,12 +77,12 @@
             flex-direction: column;
 
             /*En tant qu'item-flex il peut s'étirer, ce qui va mettre la balise footer en bas de la page*/
- 
+            flex: 1 1 auto;
         }
 
         /*Tous les enfants de la balise <main> peuvent s'étirer en hauteur ou en largeur*/
-        main >* {
-
+        main > * {
+            flex: 1 1 0;
         }
 
 
@@ -91,15 +91,22 @@
 
         /*
             Tablette - 768px et +
-            Les enfants du conteneur <main> s'affichen en rangée et
+            Les enfants du conteneur <main> s'affichent en rangée et
             peuvent faire des sauts de lignes.
             L'article peut s'étirer pour faire une ligne au complet
             
         */
 
         @media screen and (min-width: 768px) {
-
-
+            main {
+                /* flex-direction: row;
+                flex-wrap: wrap; */
+                /* Raccourci pour direction et wrap : flow */
+                flex-flow: row wrap;
+            }
+            main article {
+                flex: 1 1 100%;
+            }
         }
 
 
@@ -111,7 +118,13 @@
         */
 
         @media screen and (min-width: 992px) {
+            main article {
+                flex: 2 1 0;
+            }
 
+            main aside:first-of-type {
+                order: -1;
+            }
         }
     </style>
 
@@ -126,9 +139,7 @@
     <main>
         <article>
             <h2>Article</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed ex turpis. Cras luctus nibh lectus,
-                in ullamcorper ex tempor eleifend. Nulla bibendum, eros a consequat vestibulum, orci massa fermentum
-                quam, sed commodo nunc ex vitae nisl. Aliquam ullamcorper interdum est nec tincidunt.</p>
+            <p>Test</p>
         </article>
         <aside>
             <h2>Aside 1</h2>
