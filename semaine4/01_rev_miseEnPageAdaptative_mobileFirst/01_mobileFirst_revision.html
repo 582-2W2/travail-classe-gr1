@@ -52,7 +52,7 @@
                 padding: 0.5rem 1rem;
                 color: #fff;
                 text-decoration: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                border-bottom: 5px solid rgba(255, 255, 255, 0.3);
             }
 
             section {
@@ -81,6 +81,7 @@
 
             main {
                 /* Occupe la hauteur restante comme enfant ou item flex */
+                flex-grow: 1;
 
                 /* Contexte flex en colonne pour ses enfants */
                 display: flex;
@@ -97,37 +98,53 @@
 
             section {
                 /* Occupe la hauteur ou la largeur restante */
+                flex-grow: 1;
             }
 
             /* Styles pour les écrans plus larges
             *=============================================== */
 
             /*
-            Tablette - 768px et +
-            Le menu de navigation est en rangée
-            Chaque élément du menu se sépare l'espace équitablement
-            Et, on leur enlève la ligne du bas
-            
-        */
-
-            /*
-            Ordinateur de bureau - 992px et +
-            L'axe principal du conteneur flex main est en rangée
-            Le menu de navigation revient en colonne avec une largeur de 20vw
-            On remet la ligne en bas des éléments du menus 
-            et on aligne le texte à gauche
-            
-        */
-
-            @media (min-width: 992px) {
-                main {
-                }
-
+                Tablette - 768px et +
+                Le menu de navigation est en rangée
+                Chaque élément du menu se sépare l'espace équitablement
+                Et, on leur enlève la ligne du bas
+                
+            */
+            @media screen and (min-width: 768px) {
                 nav {
+                    flex-direction: row;
                 }
 
                 nav a {
+                    border-bottom: none;
+                    flex-grow: 1;
+                }
+            }
+
+            /*
+                Ordinateur de bureau - 992px et +
+                L'axe principal du conteneur flex main est en rangée
+                Le menu de navigation revient en colonne avec une largeur de 20vw
+                On remet la ligne en bas des éléments du menus 
+                et on aligne le texte à gauche
+                
+            */
+
+            @media (min-width: 992px) {
+                main {
+                    flex-direction: row;
+                }
+
+                nav {
+                    flex-direction: column;
+                    width: 20vw;
+                }
+
+                nav a {
+                    flex-grow: 0;
                     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                    text-align: left;
                 }
             }
         </style>
