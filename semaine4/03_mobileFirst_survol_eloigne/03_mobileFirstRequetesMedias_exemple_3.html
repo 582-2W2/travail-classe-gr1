@@ -43,12 +43,14 @@
                 text-align: center;
                 box-shadow: 0px 0px 12px -1px black;
                 /*
-                On change le mode de position de chaque carte comme conteneur parent
-            */
+                    On change le mode de position de chaque carte comme conteneur parent
+                */
+                position: relative;
 
                 /*
-                On cache les éléments à l'extérieur de la carte
-            */
+                    On cache les éléments à l'extérieur de la carte
+                */
+                overflow: hidden;
             }
 
             .information {
@@ -57,15 +59,19 @@
                 border-bottom: 10px solid #9dcb58;
 
                 /*
-                Position en absolu et dimensions ajustés à celles du conteneur parent
-            */
+                    Position en absolu et dimensions ajustés à celles du conteneur parent
+                */
+                position: absolute;
+                top: 0;
+                bottom: 0;
 
                 /*
-                Opacité de 0% au départ et en bas de la carte
-            */
+                    Opacité de 0% au départ et en bas de la carte
+                */
+                translate: 0 100%;
 
                 /*Transition*/
-                transition: transform 0.5s, opacity 0.5s;
+                transition: translate 0.5s, opacity 0.5s;
             }
 
             h1 {
@@ -95,6 +101,7 @@
                 background-position: center center;
 
                 /*Effet de transition*/
+                transition: background-image 0.5s;
             }
 
             #Bulbasaur {
@@ -121,8 +128,8 @@
 
             main {
                 /*
-                Conteneur flex en colonne avec ses enfants flex centrés sur l'axe secondaire
-            */
+                    Conteneur flex en colonne avec ses enfants flex centrés sur l'axe secondaire
+                */
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -134,10 +141,10 @@
                 margin: 5vh 0;
 
                 /*
-                Conteneur flex en colonne inversée avec items centrés sur l'axe secondaire
-            */
+                    Conteneur flex en colonne inversée avec items centrés sur l'axe secondaire
+                */
                 display: flex;
-
+                flex-direction: column-reverse;
                 align-items: center;
             }
 
@@ -153,20 +160,21 @@
             .carte:hover > .information,
             .carte:active > .information {
                 opacity: 1;
+                translate: 0 0;
             }
 
-            .carte:hover,
-            .carte:active {
+            .carte:hover + #Bulbasaur,
+            .carte:active + #Bulbasaur {
                 background-image: url(images/001.png);
             }
 
-            .carte:hover,
-            .carte:active {
+            .carte:hover + #Charmander,
+            .carte:active + #Charmander {
                 background-image: url(images/002.png);
             }
 
-            .carte:hover,
-            .carte:active {
+            .carte:hover + #Squirtle,
+            .carte:active + #Squirtle {
                 background-image: url(images/003.png);
             }
 

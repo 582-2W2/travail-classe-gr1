@@ -1,7 +1,7 @@
 # Animation et interactivité Web (Groupe 1)
 ## Exemples pratiques travaillés en classe
 
-### Semaine 4 :construction:
+### Semaine 4 :heavy_check_mark:
 >Approche *mobile first* (suite). Police d'icônes `Google Font Icons`. Sélecteurs d'adjacence CSS. Icônes de menu *burger*. Technique `HTML/CSS` pour l'interactivité d'une menu adaptatif.
 
 ### Semaine 3 :heavy_check_mark:

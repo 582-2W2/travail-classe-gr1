@@ -11,9 +11,9 @@
             /* Normalisation supplémentaire 
         =============================================== */
             * {
+                box-sizing: border-box;
                 margin: 0;
                 padding: 0;
-                box-sizing: border-box;
             }
 
             /* Mise en page - Base et petits périphériques...
@@ -21,14 +21,12 @@
 
             html {
                 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-                width: 100vw;
                 height: 100vh;
                 /*Ajustement de la taille des polices à la racine du document*/
                 font-size: clamp(14px, 0.75rem + 1vw, 20px);
             }
 
             body {
-                width: 100%;
                 height: 100%;
                 /*Conteneur flex en colonne*/
                 display: flex;
@@ -56,7 +54,7 @@
                 cursor: pointer;
 
                 /*Effet de transition sur la rotation*/
-                transition: transform 1s;
+                transition: rotate 1s;
             }
 
             .menu {
@@ -65,11 +63,13 @@
                 text-align: center;
 
                 /*Pour cet exemple, il prend toute la place restante en hauteur*/
+                flex-grow: 1;
 
-                /*On le place à gauche de l'écran*/
+                /*On le cache à gauche de l'écran*/
+                translate: calc(-100% - 0.5rem);
 
                 /*Effet de transition quand la position sur l'axe des X change*/
-                transition: transform 1s;
+                transition: translate 1s;
             }
 
             /* Contrôle du menu et du bouton burger...
@@ -80,13 +80,16 @@
           n'est pas affichée...mais restera fonctionnelle...
         ==========================================================================*/
 
-            #checkboxPourBoutonBurger {
+            #checkboxPourBoutonBurger:checked ~ .menu  {
+                translate: -0.5rem;
+            }
+
+            #checkboxPourBoutonBurger:checked + label {
+                rotate: 90deg;
             }
 
             #checkboxPourBoutonBurger {
-            }
-
-            #checkboxPourBoutonBurger {
+                display: none;
             }
 
             /* Ajustements pour les périphériques de plus grande taille ...
