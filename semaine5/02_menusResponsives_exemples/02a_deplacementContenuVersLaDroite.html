@@ -19,7 +19,7 @@
             /* Styles de base
         =============================================== */
             html {
-                width: 100vw;
+                /* width: 100vw; */
                 height: 100vh;
                 font-size: clamp(14px, 0.5rem + 1vw, 18px);
             }
@@ -35,6 +35,7 @@
                 display: flex;
 
                 /*On affiche pas le contenu qui déborde sur l'axe des X*/
+                overflow-x: hidden;
             }
 
             main.contenu {
@@ -49,6 +50,7 @@
                 flex-direction: column;
 
                 /*Effet de transition*/
+                transition: translate 0.5s;
             }
 
             section {
@@ -101,6 +103,9 @@
             /* Mise en page pour les petits périphériques
         =============================================== */
             .menu {
+                position: absolute;
+                height: 100%;
+                z-index: -1;
             }
 
             .bouton-burger {
@@ -133,14 +138,16 @@
             le contenu vers la droite
         ==========================================================================*/
 
-            #cc-pour-bouton-burger {
-            }
-
             /*
             * On déplace le contenu vers la droite 
             * Le déplacement correspond à la largeur du menu: 10rem
             */
-            #cc-pour-bouton-burger {
+            #cc-pour-bouton-burger:checked + .contenu {
+                translate: 10rem;
+            }
+
+            #cc-pour-bouton-burger:checked + .contenu > label {
+                transform: rotate(90deg);
             }
 
             #cc-pour-bouton-burger {
@@ -152,17 +159,20 @@
         =============================================== */
 
             /*
-            On enlève la position en absolue du menu,
-            celui-ci revient se positionner à gauche du contenu global
-            comme premier enfant flex de la rangée...
-            On enlève l'affichage du bouton burger          
-        */
+                On enlève la position en absolue du menu,
+                celui-ci revient se positionner à gauche du contenu global
+                comme premier enfant flex de la rangée...
+                On enlève l'affichage du bouton burger          
+            */
 
             @media screen and (min-width: 768px) {
                 .menu {
+                    position: static;
+                    height: auto;
                 }
 
                 .bouton-burger {
+                    display: none;
                 }
             }
         </style>

@@ -56,10 +56,14 @@
                 color: #f3ece5;
                 font-size: 0.9rem;
                 /*
-                Au démarrage la hauteur maximale est de 0px,
-                le contenu qui déborde est masqué et on déclare
-                un effet de transition
-            */
+                    Au démarrage la hauteur maximale est de 0px,
+                    le contenu qui déborde est masqué et on déclare
+                    un effet de transition
+                */
+                max-height: 0px;
+                overflow: hidden;
+
+                transition: max-height 0.5s;
             }
 
             .contenu p {
@@ -69,23 +73,27 @@
 
             .fleche {
                 font-size: 2rem;
-                transition: transform 0.5s;
+                transition: rotate 0.5s;
             }
 
             /*Gestion de la case à cocher et apparition du texte*/
             #montrer-texte:checked + label > .fleche {
                 /*Rotation 3D de la flèche sur des X*/
+                /* transform: rotate(180deg); */
+                rotate: 180deg;
             }
 
             #montrer-texte:checked ~ .contenu {
                 /*
-                Pour le texte, on met une grande hauteur maximale,
-                pour s'assurer que la hauteur soit OK sur tous les périphériques
-            */
+                    Pour le texte, on met une grande hauteur maximale,
+                    pour s'assurer que la hauteur soit OK sur tous les périphériques
+                */
+                max-height: 20rem;
             }
 
             #montrer-texte {
                 /*On dissimule la case à cocher*/
+                display: none;
             }
         </style>
     </head>
