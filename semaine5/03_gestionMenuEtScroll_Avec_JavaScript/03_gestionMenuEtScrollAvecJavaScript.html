@@ -19,7 +19,7 @@
             /* Styles de base
         =============================================== */
             html {
-                width: 100vw;
+                /* width: 100vw; */
                 height: 100vh;
                 font-size: clamp(14px, 0.5rem + 1vw, 18px);
                 scroll-behavior: smooth;
@@ -191,7 +191,7 @@
             On met le menu opaque
         */
             #cc-pour-bouton-burger:checked ~ .barre-menu > .menu {
-                opacity: 1;
+                opacity: 0.95;
             }
 
             /*Arrivée des différents boutons avec un délai*/
@@ -228,13 +228,13 @@
         =============================================== */
 
             /*
-            On enlève la position fixed du menu,
-            on réajuste ses dimensions et on le met comme conteneur flex en rangée
-            et on lui enlève sa translation et on le remet opaque.
-            Les éléments du menu peuvent s'étirer et on leur enlève la translation.
-            La barre de menu prend la hauteur de son contenu dans bordure.
-            On enlève l'affichage du bouton burger.          
-        */
+                On enlève la position fixed du menu,
+                on réajuste ses dimensions et on le met comme conteneur flex en rangée
+                et on lui enlève sa translation et on le remet opaque.
+                Les éléments du menu peuvent s'étirer et on leur enlève la translation.
+                La barre de menu prend la hauteur de son contenu dans bordure.
+                On enlève l'affichage du bouton burger.          
+            */
 
             @media screen and (min-width: 768px) {
                 .menu {
@@ -309,27 +309,55 @@
              */
 
             //Récupérer la case à cocher et la balise <body>
-            let leCheckBox;
-            let leBody;
+            // let leCheckBox = document.querySelector('#cc-pour-bouton-burger');
+            let leCheckBox = document.getElementById('cc-pour-bouton-burger');
+            let leBody = document.querySelector('body');
+
+            // Associer un gestionnaire d'événement avec le clic du checkbox
+            leCheckBox.addEventListener('click', gererLeDefilement);
 
             /*
              * Gérer le défilement des éléments de la page HTML quand le menu est affiché sur petit écran
              */
 
-            function gererLeDefilement(event) {}
+            function gererLeDefilement(event) {
+                console.log("Valeur de la prop checked du checkbox : ", leCheckBox.checked);
+                
+                if(leCheckBox.checked) {
+                    leBody.style.overflowY = 'hidden';
+                }
+                else {
+                    leBody.style.overflowY = 'scroll';
+                }
+            }
 
             /*
              * Script qui contrôle l'état de la case à cocher pour fermer
              * le menu quand on clique sur un bouton
              */
             /*Récupérer les boutons du menu*/
-            let lesBoutons;
+            // Un "tableau" (NodeList) des 5 balises A
+            let lesBoutons = document.querySelectorAll('nav.menu > a');
+            console.log('Les boutons : ', lesBoutons);
+            // Écrire une boucle pour associer l'écouteur d'événement click sur chacun de mes boutons
+            for(let bouton of lesBoutons) {
+                bouton.addEventListener('click', controlerBoutonBurger);
+            }
+
+            // for(let i=0; i < lesBoutons.length; i++) {
+
+            // }
 
             /*Mettre un gestionnaire d'événement sur chaque bouton avec un boucle for of*/
 
             function controlerBoutonBurger() {
                 //Gérer l'état de la case à cocher
                 //Remettre la barre de défilement sur le body
+                // leCheckBox.checked = false;
+                // leBody.style.overflowY = 'scroll';
+
+                // On peut aussi faire : 
+                leCheckBox.click();
             }
         </script>
     </body>

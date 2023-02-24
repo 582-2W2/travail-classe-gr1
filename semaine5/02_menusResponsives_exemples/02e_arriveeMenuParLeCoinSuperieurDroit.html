@@ -129,7 +129,8 @@
                 flex-direction: column;
                 justify-content: center;
 
-                /*Au démarrage on met le menu complètement en haut à droite et avec une échelle de 10%*/
+                /*Au démarrage on met le menu complètement en haut à droite et avec un échelle de 10%*/
+                transform: translateY(-110%) translateX(100%) scale(10%);
 
                 /*Effet de transition*/
                 transition: transform 1s;
@@ -174,6 +175,7 @@
             et ce, en lui enlevant les transformations appliquées
         */
             #cc-pour-bouton-burger:checked ~ .barre-menu > .menu {
+                transform: translateY(0%) translateX(0%) scale(100%);
             }
 
             #cc-pour-bouton-burger {

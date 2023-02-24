@@ -118,6 +118,7 @@
                 justify-content: center;
 
                 /*Au démarrage on met le menu complètement à droite*/
+                transform: translateX(100%);
 
                 /*Effet de transition*/
                 transition: transform 1s;
@@ -161,6 +162,7 @@
             On déplace le menu vers la droite, en lui enlevant la translation déjà appliquée
         */
             #cc-pour-bouton-burger:checked ~ .barre-menu > .menu {
+                transform: translateX(0%);
             }
 
             #cc-pour-bouton-burger {

@@ -19,7 +19,7 @@
             /* Styles de base
         =============================================== */
             html {
-                width: 100vw;
+                /* width: 100vw; */
                 height: 100vh;
                 font-size: clamp(14px, 0.5rem + 1vw, 18px);
             }
@@ -36,6 +36,7 @@
                 flex-direction: column;
 
                 /*On cache le contenu qui déborde*/
+                overflow-x: hidden;
             }
 
             main.contenu {
@@ -93,25 +94,42 @@
 
             .barre-menu {
                 border-bottom: 2px solid #ddd;
+                width: 100%;
+                height: 10vh;
 
                 /*
-                Conteneur flex en rangée avec alignement à droite pour
-                les petits périphériques. Et les items-flex sont centrés
-                sur l'axe secondaire.
-            */
+                    Conteneur flex en rangée avec alignement à droite pour
+                    les petits périphériques. Et les items-flex sont centrés
+                    sur l'axe secondaire.
+                */
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
             }
 
             .menu {
                 width: 100%;
                 /*Position fixe sur petit écran en bas de la barre de la barre de menu*/
+                position: fixed;
+                top: 10vh;
+                right: 0;
 
                 /*Sa hauteur est celle de la hauteur du viewport MOINS celle de la barre de navigation*/
+                height: 90vh;
 
                 /*Conteneur flex en colonne avec élément centré au milieu*/
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
                 /*Au démarrage on met le menu complètement à gauche*/
+                /* translate: -90%;
+                rotate: 45deg; */
+                transform: translate(-100%);
+
 
                 /*Effet de transition*/
+                transition: transform 0.5s;
             }
 
             .bouton-burger {
@@ -149,9 +167,10 @@
             }
 
             /*
-            On déplace le menu vers la droite, en lui enlevant la translation déjà appliquée
-        */
-            #cc-pour-bouton-burger:checked ~ .barre-menu > .menu {
+                On déplace le menu vers la droite, en lui enlevant la translation déjà appliquée
+            */
+            #cc-pour-bouton-burger:checked + .barre-menu > .menu {
+                transform: translate(0);
             }
 
             #cc-pour-bouton-burger {
@@ -163,21 +182,29 @@
         =============================================== */
 
             /*
-            On enlève la position fixed du menu,
-            on réajuste ses dimensions et on le met comme conteneur flex en rangée
-            et on lui enlève sa translation. Les éléments du menu peuvent s'étirer
-            et la barre de menu prend la hauteur de son contenu sans bordure.
-            On enlève l'affichage du bouton burger          
-        */
+                On enlève la position fixed du menu,
+                on réajuste ses dimensions et on le met comme conteneur flex en rangée
+                et on lui enlève sa translation. Les éléments du menu peuvent s'étirer
+                et la barre de menu prend la hauteur de son contenu sans bordure.
+                On enlève l'affichage du bouton burger          
+            */
 
             @media screen and (min-width: 768px) {
                 .menu {
+                    position: static;
+                    transform: translate(0);
+                    flex-direction: row;
+                    height: auto;
+                    width: 100%;
                 }
 
                 .menu a {
+                    flex-grow: 1;
                 }
 
                 .barre-menu {
+                    height: 100%;
+                    border-bottom: none;
                 }
 
                 .bouton-burger {
