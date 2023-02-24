@@ -1,7 +1,7 @@
 # Animation et interactivité Web (Groupe 1)
 ## Exemples pratiques travaillés en classe
 
-### Semaine 5 :watch:
+### Semaine 5 :heavy_check_mark:
 >Diverses stratégies d'affichage d'un menu adaptatif sur appareil mobile (ou viewport restreint en largeur en général). Contrôle de l'affichage du menu et du défilement de la page sous-jacente en JavaScript.
 
 ### Semaine 4 :heavy_check_mark:
