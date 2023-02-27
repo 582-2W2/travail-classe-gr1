@@ -1,6 +1,9 @@
 # Animation et interactivité Web (Groupe 1)
 ## Exemples pratiques travaillés en classe
 
+### Semaine 6 :clock:
+>Défilement et apparition avec effet de transition des éléments dans une page Web. Animation par images-clés en CSS.
+
 ### Semaine 5 :heavy_check_mark:
 >Diverses stratégies d'affichage d'un menu adaptatif sur appareil mobile (ou viewport restreint en largeur en général). Contrôle de l'affichage du menu et du défilement de la page sous-jacente en JavaScript.
 
