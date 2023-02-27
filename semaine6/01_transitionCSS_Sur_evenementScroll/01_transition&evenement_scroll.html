@@ -194,23 +194,36 @@
         </section>
 
         <script>
-            /*/////Code adapté de: ///////
-            https://alvarotrigo.com/blog/css-animations-scroll/
+            /*
+                /////Code adapté de: ///////
+                https://alvarotrigo.com/blog/css-animations-scroll/
 
-            On utilise principalement la méthode elementHTML.getBoundingClientRect()
-            Cette méthode retourne un objet DOMRect fournissant des informations sur
-            la taille d'un élément et sa position relative par rapport à la zone d'affichage.
-            Voir à ce sujet: https://developer.mozilla.org/fr/docs/Web/API/Element/getBoundingClientRect
-        */
+                On utilise principalement la méthode elementHTML.getBoundingClientRect()
+                Cette méthode retourne un objet DOMRect fournissant des informations sur
+                la taille d'un élément et sa position relative par rapport à la zone d'affichage.
+                Voir à ce sujet: https://developer.mozilla.org/fr/docs/Web/API/Element/getBoundingClientRect
+            */
             function faireApparaitre() {
                 let lesSectionsAfaireApparaitre;
+                // Hauteur du viewport : https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight
 
                 for (let uneSection of lesSectionsAfaireApparaitre) {
-                    let hauteurVisible;
+                    // Obtenir l'information sur les dimensions de la "boîte" CSS correspondant à la section
+
+                    let positionDuHaut;
                     let hauteurDeLaSection;
+
+                    // Modifier les propriétés d'opacité et de déplacement ...
+                    // ... si la section est entièrement *dans* le viewport : la dévoiler
+
+
+                    // ... et sinon : la cacher
+
                 }
             }
+
             /*Gestionnaire d'événement scroll sur la fenêtre*/
+
         </script>
     </body>
 </html>
