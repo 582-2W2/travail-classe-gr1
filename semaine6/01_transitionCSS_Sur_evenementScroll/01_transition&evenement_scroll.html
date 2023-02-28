@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>01-Transion CSS & événement scroll</title>
+        <title>01-Transition CSS & événement scroll</title>
 
         <!--Polices de caractères de Google-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -83,11 +83,11 @@
 
             .apparition {
                 /*
-                Au démarrage, les éléments ne sont pas visibles
-                On va les faire apparaître avec le défilement de la page
-                quand ils vont atteindre une certaine hauteur
-            */
-                transform: translateX(110%);
+                    Au démarrage, les éléments ne sont pas visibles
+                    On va les faire apparaître avec le défilement de la page
+                    quand ils vont atteindre une certaine hauteur
+                */
+                transform: translateX(100%);
                 opacity: 0;
                 transition: opacity 1s, transform 1s;
             }
@@ -203,27 +203,39 @@
                 la taille d'un élément et sa position relative par rapport à la zone d'affichage.
                 Voir à ce sujet: https://developer.mozilla.org/fr/docs/Web/API/Element/getBoundingClientRect
             */
-            function faireApparaitre() {
-                let lesSectionsAfaireApparaitre;
-                // Hauteur du viewport : https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight
-
-                for (let uneSection of lesSectionsAfaireApparaitre) {
-                    // Obtenir l'information sur les dimensions de la "boîte" CSS correspondant à la section
-
-                    let positionDuHaut;
-                    let hauteurDeLaSection;
-
-                    // Modifier les propriétés d'opacité et de déplacement ...
-                    // ... si la section est entièrement *dans* le viewport : la dévoiler
+            
+            // Détecter le défilement de la page dans la fenêtre
+            window.addEventListener('scroll', gererDefilement);
 
 
-                    // ... et sinon : la cacher
+            // Fonction pour gérer ce qui se passe lorsque l'événement scroll est déclenché
+            function gererDefilement() {
+                // 1) La hauteur du viewport
+                let hauteurViewport = window.innerHeight;
+                console.log("Hauteur du VP : ", hauteurViewport);
 
+                // 2) Attraper tous les éléments à faire apparaitre (div.apparition)
+                let lesDivs = document.querySelectorAll('.apparition');
+
+                // 3) Parcourir ces éléments, et vérifier s'ils sont *DANS* le viewport pour les faire apparaître
+                for (let unDiv of lesDivs) {
+                    // 4) Obtenir l'information sur les dimensions de la boîte 
+                    let infoBoite = unDiv.getBoundingClientRect();
+                    console.log('Information sur la boîte : ', infoBoite);
+
+                    // 5) Vérifier si le bas de la div est déjà dans le viewport
+                    if(infoBoite.bottom < hauteurViewport) {
+                        // 6) si oui : on applique la transformation et l'opacité désirée
+                        unDiv.style.transform = "translate(0)"; 
+                        unDiv.style.opacity = 1;
+                    }
+                    else {
+                        unDiv.style.transform = "translate(100%)"; 
+                        unDiv.style.opacity = 0;
+                    }
                 }
+
             }
-
-            /*Gestionnaire d'événement scroll sur la fenêtre*/
-
         </script>
     </body>
 </html>

@@ -21,7 +21,28 @@
 			}
 
 			/*Images-clés de l'animation de la division : changer-couleur-et-taille*/
-
+			@keyframes changer-couleur-et-taille {
+				0% {
+					background-color: red;
+					scale: 1 1; 
+				}
+				25% {
+					background-color: green;
+					scale: 2 1; 
+				}
+				50% {
+					background-color: yellow;
+					scale: 4 1; 
+				}
+				75% {
+					background-color: green;
+					scale: 2 1; 
+				}
+				100% {
+					background-color: red;
+					scale: 1 1; 
+				}
+			}
 
 			div {
 				width:20vmin;
@@ -31,7 +52,9 @@
 				transform-origin: left top;
 
 				/*Effet d'animation*/
-	
+				animation-name: changer-couleur-et-taille;
+				animation-duration: 5s;
+				animation-iteration-count: infinite;
 			}
 
 		</style>
