@@ -31,24 +31,30 @@
             background-position: center;
             box-shadow: 0px 15px 10px -5px #777;
             cursor: pointer;
+            animation: fondu-images 8s 2s infinite backwards;
         }
 
 
         .diaporama:hover {
+            animation-play-state: paused;
             
         }
 
         /* Animations CSS : fondu-image
         =============================================== */
-
-
-
-        /* Affectation de l'animations CSS
-        =============================================== */
-
-        .diaporama {
-           /*Animation*/
-           
+        @keyframes fondu-images {
+            from, to {
+                background-image: url(images/image1.jpg);
+            }
+            25% {
+                background-image: url(images/image2.jpg);
+            }
+            50% {
+                background-image: url(images/image3.jpg);
+            }
+            75% {
+                background-image: url(images/image4.jpg);
+            }
         }
     </style>
 </head>

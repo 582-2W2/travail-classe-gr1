@@ -46,7 +46,14 @@
 		}
 
 		/* Images-clés de l'animation de la deuxième division : deplacer horizontalement vers le bord du viewport*/
-
+		@keyframes deplacer-horizontalement {
+			from {
+				translate: 0;
+			}
+			to {
+				translate: calc(100vw - 20vmin - 40px);
+			}
+		}
 
 
 		#div1 {
@@ -62,7 +69,7 @@
 			animation-name: changer-couleur-et-taille;
 			animation-duration: 5s;
 			animation-delay: 2s;
-
+			animation-iteration-count: 3;
 		}
 
 		#div2 {
@@ -72,7 +79,9 @@
 			background-color: red;
 
 			/* Effet d'animation : déplacement en boucle */
-
+			animation-name: deplacer-horizontalement;
+			animation-duration: 3s;
+			animation-iteration-count: infinite;
 		}
 	</style>
 

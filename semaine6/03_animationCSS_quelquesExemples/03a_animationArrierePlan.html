@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>03a anmation CSS d'un arrière plan</title>
+    <title>03a animation CSS d'un arrière plan</title>
 
     <!-- Ajustement de la taille du viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,18 +43,29 @@
             display:flex;
             justify-content: center;
             align-items: center;
+
+            /* Affecter l'animation */
+            animation: changer-couleur 6s 1s infinite both;
         }
 
 
         /* Animations CSS: changer-couleur
         #33CCCC #33CC36 #B8CC33 #FCCA00 #33CC36 #33CCCC
         =============================================== */
-
-
-
-        /* Affectation de l'animations CSS
-        =============================================== */
-
+        @keyframes changer-couleur {
+            from, to {
+                background-color: #33CCCC;
+            }
+            20%, 80% {
+                background-color: #33CC36;
+            }
+            40% {
+                background-color: #B8CC33;
+            }
+            60% {
+                background-color: #FCCA00;
+            }
+        }
         
     </style>
 
