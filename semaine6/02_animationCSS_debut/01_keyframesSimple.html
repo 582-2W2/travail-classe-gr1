@@ -21,7 +21,17 @@
 		}
 
 		/*Images-clés de l'animation de la division : changer-couleur*/
-
+		@keyframes changer-couleur {
+			0% {
+				background-color: red;
+			}
+			50% {
+				background-color: green;
+			}
+			100% {
+				background-color: yellow;
+			}
+		}
 
 
 		div {
@@ -30,7 +40,8 @@
 			border: 1px solid black;
 
 			/*Effet d'animation*/
-
+			animation-name: changer-couleur;
+			animation-duration: 3s;
 		}
 
 	</style>
