@@ -1,11 +1,7 @@
 # Animation et interactivité Web (Groupe 1)
 ## Exemples pratiques travaillés en classe
 
-<<<<<<< HEAD
 ### Semaine 6 :heavy_check_mark:
-=======
-### Semaine 6 :construction:
->>>>>>> ca43f715801366ef6e7dc041176c7f7e59acc73f
 >Défilement et apparition avec effet de transition des éléments dans une page Web. Animation par images-clés en CSS.
 
 ### Semaine 5 :heavy_check_mark:
