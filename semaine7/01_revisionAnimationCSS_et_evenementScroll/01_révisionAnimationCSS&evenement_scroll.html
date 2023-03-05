@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>01-Animation CSS & événement scroll / Révision</title>
+
+        <!--Polices de caractères de Google-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
+
+        <style>
+            /* Normalisation supplémentaire 
+        =============================================== */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Mise en page de base
+        =============================================== */
+
+            html {
+                width: 100vw;
+                height: 100vh;
+                font-family: "Rubik", sans-serif;
+                /*Ajustement de la taille des polices à la racine du document*/
+                font-size: clamp(12px, 0.5rem + 0.5vw, 18px);
+            }
+
+            body {
+                background-color: #e7e4df;
+            }
+
+            section {
+                height: 100vh;
+                width: 100vw;
+                /*On cache le contenu qui déborde*/
+                overflow-x: hidden;
+                /*Conteneur flex en rangée, centré verticalement*/
+                display: flex;
+                align-items: center;
+            }
+
+            /*Images-clés de l'animation du texte : animation-texte*/
+
+            span {
+                font-size: 8rem;
+                /*Propriété qui permet d'éviter les retours à la ligne si le texte déborde*/
+
+                /*Déclaration de l'animation*/
+            }
+
+            /*Images-clés de l'animation du chargement*/
+            @keyframes animation-chargement {
+            }
+
+            img {
+                width: 30vmin;
+                height: 30vmin;
+                /*Centré dans la section*/
+                margin: auto;
+                /*Déclaration de l'animation*/
+                /*Au démarrage, l'animation ne joue pas et est invisible*/
+
+                /*Effet de transition sur l'opacité*/
+            }
+        </style>
+    </head>
+
+    <body>
+        <section>
+            <!--Pour le trucage d l'animation... le texte doit se répéter-->
+            <span
+                >Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
+                <code>scroll</code> &#8595;.&nbsp;</span
+            >
+            <span
+                >Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
+                <code>scroll</code> &#8595;.&nbsp;</span
+            >
+        </section>
+
+        <section>
+            <img src="image/loader.svg" alt="Chargement de la page..." />
+        </section>
+        <script>
+            //On déclenche l'animation de l'image lorsque le top de celle-ci atteint
+            //la moitié de la hauteur de la fenêtre
+
+            function faireApparaitre() {
+                let image;
+                let hauteurVisible;
+                let hauteurImage;
+
+                if (true) {
+                    image.style.opacity = "1";
+                } else {
+                    image.style.opacity = "0";
+                }
+            }
+
+            /*Gestionnaire d'événement scroll sur la fenêtre*/
+        </script>
+    </body>
+</html>

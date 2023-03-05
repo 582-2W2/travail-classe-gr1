@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03b-Accélérations personnalisées sur images-clés</title>
+
+    <style>
+        /* Normalisation supplémentaire
+        =============================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles de base
+        =============================================== */
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        section {
+            width: 80vmin;
+            height: 60vmin;
+            border: 0.5vmin solid #FF0088;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        /* Images-clés de l'animation */
+        @keyframes animer-carre {
+
+            from,
+            to {
+                transform: translateY(0px);
+                /*Acceleration personnalisée*/
+                
+            }
+
+            45% {
+                transform: translateY(54vmin);
+                /*Acceleration personnalisée*/
+              
+            }
+        }
+
+        div {
+            width: 5vmin;
+            height: 5vmin;
+            background-color: #00AABB;
+
+            /*Propriétés d'animation*/
+            animation: animer-carre 2s infinite;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Accélération personnalisées sur des images-clés</h2>
+    <section>
+        <div></div>
+    </section>
+
+</body></html>
