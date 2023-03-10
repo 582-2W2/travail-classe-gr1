@@ -1,7 +1,7 @@
 # Animation et interactivité Web (Groupe 1)
 ## Exemples pratiques travaillés en classe
 
-### Semaine 7 :clock:
+### Semaine 7 :heavy_check_mark:
 >Animation CSS (suite) : les fonctions temporelles, les courbes de Bézier, les grands principes de l'animation.
 
 ### Semaine 6 :heavy_check_mark:
