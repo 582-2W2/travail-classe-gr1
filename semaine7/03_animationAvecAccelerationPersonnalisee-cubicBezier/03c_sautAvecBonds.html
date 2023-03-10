@@ -33,35 +33,35 @@
         /* Images-clés de l'animation */
 
 
-        @keyframes saut-avec-rebonds {
-            from,20%,
-            55%,
-            80%,
-            to {
-                /*Le carré va monter à la prochaine image-clé, on décélère*/
-   
-                transform: translateY(0);
-            }
+@keyframes saut-avec-rebonds {
+    from,20%,
+    55%,
+    80%,
+    to {
+        /*Le carré va monter à la prochaine image-clé, on décélère*/
+        animation-timing-function: cubic-bezier(0.25, 0.60, 0.35, 1);
+        transform: translateY(0);
+    }
 
-            40%,
-            45% {
-                 /*Le carré va descendre à la prochaine image-clé, on accélère*/
+    40%,
+    45% {
+            /*Le carré va descendre à la prochaine image-clé, on accélère*/
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translateY(-10vmin);
+    }
 
-                transform: translateY(-10vmin);
-            }
+    70% {
+        /*Le carré va descendre à la prochaine image-clé, on accélère*/
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translateY(-5vmin);
+    }
 
-            70% {
-                /*Le carré va descendre à la prochaine image-clé, on accélère*/
-                
-                transform: translateY(-5vmin);
-            }
-
-            90% {
-                /*Le carré va descendre à la prochaine image-clé, on accélère*/
-               
-                transform: translateY(-2vmin);
-            }
-        }
+    90% {
+        /*Le carré va descendre à la prochaine image-clé, on accélère*/
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translateY(-2vmin);
+    }
+}
 
 
         /* Images-clés de l'animation */

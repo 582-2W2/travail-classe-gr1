@@ -24,7 +24,6 @@
         =============================================== */
 
             html {
-                width: 100vw;
                 height: 100vh;
                 font-family: "Rubik", sans-serif;
                 /*Ajustement de la taille des polices à la racine du document*/
@@ -37,7 +36,7 @@
 
             section {
                 height: 100vh;
-                width: 100vw;
+                /* width: 100vw; */
                 /*On cache le contenu qui déborde*/
                 overflow-x: hidden;
                 /*Conteneur flex en rangée, centré verticalement*/
@@ -46,16 +45,38 @@
             }
 
             /*Images-clés de l'animation du texte : animation-texte*/
+            @keyframes animation-texte {
+                from {
+                    translate: 0;
+                }
+                to {
+                    translate: -100%;
+                }
+            }
 
             span {
                 font-size: 8rem;
-                /*Propriété qui permet d'éviter les retours à la ligne si le texte déborde*/
+                /*
+                    Empêcher le texte de faire des retour à la ligne 
+                    aux espaces blancs
+                */
+                white-space: nowrap;
 
-                /*Déclaration de l'animation*/
+                /*Utilisation de l'animation*/
+                animation: animation-texte 25s 1s infinite;
+                animation-timing-function: linear;
             }
 
             /*Images-clés de l'animation du chargement*/
             @keyframes animation-chargement {
+                from {
+                    rotate: 0;
+                    scale: 1;
+                }
+                to {
+                    rotate: 1turn;
+                    scale: 1.5;
+                }
             }
 
             img {
@@ -63,10 +84,19 @@
                 height: 30vmin;
                 /*Centré dans la section*/
                 margin: auto;
-                /*Déclaration de l'animation*/
-                /*Au démarrage, l'animation ne joue pas et est invisible*/
+                /*Utiliser l'animation*/
+                animation-name: animation-chargement;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-timing-function: ease;
 
-                /*Effet de transition sur l'opacité*/
+                /*Au démarrage, l'animation ne joue pas et est invisible*/
+                animation-play-state: paused;
+                opacity: 0;
+
+                /* Effet de transition sur l'opacité */
+                transition: opacity 1s;
             }
         </style>
     </head>
@@ -74,36 +104,41 @@
     <body>
         <section>
             <!--Pour le trucage d l'animation... le texte doit se répéter-->
-            <span
-                >Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
-                <code>scroll</code> &#8595;.&nbsp;</span
-            >
-            <span
-                >Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
-                <code>scroll</code> &#8595;.&nbsp;</span
-            >
+            <span>
+                Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
+                <code>scroll</code> &#8595;
+            </span>
+            <span>
+                Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
+                <code>scroll</code> &#8595;
+            </span>
         </section>
 
         <section>
             <img src="image/loader.svg" alt="Chargement de la page..." />
         </section>
+        
         <script>
             //On déclenche l'animation de l'image lorsque le top de celle-ci atteint
             //la moitié de la hauteur de la fenêtre
 
             function faireApparaitre() {
-                let image;
-                let hauteurVisible;
-                let hauteurImage;
+                let image = document.querySelector('img');
+                // Hauteur du viewport
+                let hauteurVisible = window.innerHeight;
+                let positionTopImage = image.getBoundingClientRect().top;
 
-                if (true) {
-                    image.style.opacity = "1";
+                if (positionTopImage < hauteurVisible/2) {
+                    image.style.opacity = 1;
+                    image.style.animationPlayState = 'running';
                 } else {
-                    image.style.opacity = "0";
+                    image.style.opacity = 0;
+                    image.style.animationPlayState = 'paused';
                 }
             }
 
             /*Gestionnaire d'événement scroll sur la fenêtre*/
+            window.addEventListener('scroll', faireApparaitre)
         </script>
     </body>
 </html>

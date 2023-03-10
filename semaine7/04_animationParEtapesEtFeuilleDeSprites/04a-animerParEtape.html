@@ -86,7 +86,7 @@
         /* Transition sur la balise footer
         ============================================================*/
         footer {
-           
+           transition: background-color 2s steps(4);
         }
 
         footer:hover {
@@ -115,7 +115,14 @@
         }
 
         /*Animation de la feuille de sprites : animer-vol-poulet */
-
+        @keyframes animer-vol-poulet {
+            from {
+                background-position: 0;
+            }
+            to {
+                background-position: -1664px;
+            }
+        }
 
         .vol-poulet {
             margin: 0 auto;
@@ -125,15 +132,22 @@
             height: 176px;
             width: 208px;
 
+            border: 2px solid green;
+
             /*Animation de la feuille de sprites du poulet pour 8 images...*/
-   
+            animation: animer-vol-poulet 1s steps(8) infinite;
         }
 
 
         /* Animation du titre - examiner d'abord les sélecteurs h1 et span
         ===================================================================*/
         @keyframes ecrire-titre {
-
+            from {
+                width: 100%;
+            }
+            to {
+                width: 0;
+            }
         }
 
         @keyframes clignotement {
@@ -151,7 +165,7 @@
             /*Affecter les 2 animations
             Le nombre d'étapes pour l'écriture du texte doit correspondre au nombre de caractère dans la chaîne y compris les espaces
             */
-  
+            animation: ecrire-titre 3s steps(29), clignotement 1s steps(1) infinite;
         }
 
     </style>
