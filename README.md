@@ -1,6 +1,9 @@
 # Animation et interactivité Web (Groupe 1)
 ## Exemples pratiques travaillés en classe
 
+### Semaine 8 :clock:
+>JavaScript : l'API ClassList du DOM (accès et manipulation de la liste des classes CSS associées avec les éléments HTML).
+
 ### Semaine 7 :heavy_check_mark:
 >Animation CSS (suite) : les fonctions temporelles, les courbes de Bézier, les grands principes de l'animation.
 

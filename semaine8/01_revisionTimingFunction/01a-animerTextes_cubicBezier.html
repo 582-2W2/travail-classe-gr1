@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Ajustement de la taille du viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01a-Animer du texte timing-function</title>
+
+    <!-- Importation des polices de caractères-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+
+    <style>
+        /* Normalisation supplémentaire
+        =================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles de base et Mise en page pour les petits périphériques
+        =================================================================== */
+        html {
+            width: 100vw;
+            height: 100vh;
+            font-family: 'RocknRoll One', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #D3DFDD;
+        }
+
+
+        section {
+            width: 100%;
+            height: 100%;
+
+            /*Conteneur flex*/
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        div {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+
+        /* Animations CSS : arrivee-zoom arrivee-gauche-rebond
+        ====================================================================== */
+        @keyframes arrivee-zoom {
+            from {
+                opacity: 0;
+                transform: scale(.1, .1) translateY(-200vh);
+                /*Accélération vers la prochaine image-clé*/
+ 
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale(.75, .75) translateY(10vh);
+                /*Ralentissement vers la prochaine image-clé*/
+
+            }
+
+            100% {
+                transform: none;
+            }
+        }
+
+
+
+
+        @keyframes arrivee-gauche-rebond {
+
+            0% {
+                opacity: 0;
+                transform: translate3d(-3000px, 0, 0);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translate3d(25px, 0, 0);
+            }
+
+            75% {
+                transform: translate3d(-10px, 0, 0);
+            }
+
+            90% {
+                transform: translate3d(5px, 0, 0);
+            }
+
+            to {
+                transform: none;
+            }
+        }
+
+        /* Affectation des animations
+        ====================================================================== */
+        .arrivee-zoom {
+            
+        }
+
+        .arrivee-gauche-rebond {
+            /*Délai de 1.5s et l'accélération est la même entre chaque image-clé*/
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Les textes -->
+    <section>
+        <div class="arrivee-zoom">Arrivée par le haut avec zoom</div>
+        <div class="arrivee-gauche-rebond">Arrivée par la gauche avec rebond</div>
+    </section>
+
+</body>
+
+</html>
